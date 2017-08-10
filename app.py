@@ -349,27 +349,18 @@ def makeWebhookResult(data):
 	#print('Text Data',text_data)
 	if "Unable" in row_title[0]:
 		message={
-		"text":"Sorry there is no such property available."           
-}
-	elif length==1:
-		message={
 	  "attachment":{
 	   "type":"template",
 	      "payload":{
 	"template_type":"generic",
 	"elements":[
           {
-             "title":row_title[0],
-              "subtitle":row_location[0],
-              "subtitle":"Price: Rs."+str(row_price[0]),
-                "item_url": "https://www.aarz.pk/property-detail/"+row_slug[0],               
-               "image_url":"https://www.aarz.pk/"+row_image[0] ,
+             "title":algos,
+              #"subtitle":row_location[0],
+              #"subtitle":"Price: Rs."+str(row_price[0]),
+                "item_url": "https://www.aarz.pk/property-detail/"+r_slug,               
+               "image_url":"https://www.aarz.pk/"+im_url ,
              "buttons":[
-              {
-              "type":"phone_number",
-              "title":"Call Agent",
-              "payload":"+92"+variable1[1:]
-              },
                  {
                 "type":"element_share"
                   }
@@ -379,7 +370,7 @@ def makeWebhookResult(data):
       }
     }
   }
-	elif length==2:
+	elif length==1:
 		message= {
          "attachment": {
            "type": "template",
@@ -391,32 +382,24 @@ def makeWebhookResult(data):
               "subtitle":"Price: Rs."+str(row_price[0]),
                 "item_url": "https://www.aarz.pk/property-detail/"+row_slug[0],               
                "image_url":"https://www.aarz.pk/"+row_image[0]  ,
-                "buttons": [{
-                "type":"phone_number",
-              "title":"Call Agent",
-             "payload":"+92"+variable1[1:]
-                },
+                "buttons": [
                     {
                 "type":"element_share"
                     
-                    }, 
-                   ],
+                    }
+                   ]
           }, 
                    {
-                "title": row_title[1],
-                 "subtitle":row_location[1],
-              "subtitle":"Price: Rs."+str(row_price[1]),
-                 "item_url": "https://www.aarz.pk/property-detail/"+row_slug[1],               
-               "image_url":"https://www.aarz.pk/"+row_image[1]  ,
-                "buttons": [{
-                "type":"phone_number",
-              "title":"Call Agent",
-             "payload":"+92"+variable2[1:]
-            },
+                "title": algos,
+               #  "subtitle":row_location[1],
+              #"subtitle":"Price: Rs."+str(row_price[1]),
+                 "item_url": "https://www.aarz.pk/property-detail/"+r_slug,               
+               "image_url":"https://www.aarz.pk/"+im_url  ,
+                "buttons": [
                      {
                 "type":"element_share"
                     
-                    }, 
+                    }
                    ]
           }]
             
@@ -465,21 +448,17 @@ def makeWebhookResult(data):
                    ],
           }, 
                    {
-               "title": row_title[2],
-                "subtitle":row_location[2],
-              "subtitle":"Price: Rs."+str(row_price[2]),
-                "item_url": "https://www.aarz.pk/property-detail/"+row_slug[2],               
-               "image_url":"https://www.aarz.pk/"+row_image[2]  ,
-                "buttons": [{
-               "type":"phone_number",
-              "title":"Call Agent",
-              "payload":"+92"+variable3[1:]
-            }, 
+               "title": algos,
+              #  "subtitle":row_location[2],
+             # "subtitle":"Price: Rs."+str(row_price[2]),
+                "item_url": "https://www.aarz.pk/property-detail/"+r_slug,               
+               "image_url":"https://www.aarz.pk/"+im_url,
+                "buttons": [
                      {
                 "type":"element_share"
                     
-                    }, 
-                   ],
+                    }
+                   ]
           }
                ]
             }
