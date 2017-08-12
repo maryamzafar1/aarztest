@@ -8,5 +8,4 @@ psycopg2==2.7.3
 PyAudio==0.2.8
 pycurl==7.43.0
 six==1.10.0
-urlgrabber==3.9.1
 yum-metadata-parser==1.1.4
