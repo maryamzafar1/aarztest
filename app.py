@@ -345,18 +345,18 @@ def makeWebhookResult(data):
 		row_city[i]=data[i]['city_name']
 		#sql code
 		
-		SQLCommand=("SELECT * FROM Property WHERE Property.prop_id=row_id[i]")
+		SQLCommand=("SELECT * FROM Property WHERE Property.prop_id=%d", row_id[i])
 		Values=[8]
 		cursor.execute(SQLCommand,Values)
 		prop_check=cursor.fetchone() 
 		if prop_check==None:
-			SQLCommand1= ("INSERT INTO property(prop_id,city,title,address,number,slug,price,image) VALUES (row_id[i],row_city[i],row_title[i],row_location[i],row_number[i],row_slug[i],row_price[i],row_image[i])")
+			SQLCommand1= ("INSERT INTO property(prop_id,city,title,address,number,slug,price,image) VALUES (%d,%s,%s,%s,%s,%s,%d,%s)" ,(row_id[i],row_city[i],row_title[i],row_location[i],row_number[i],row_slug[i],row_price[i],row_image[i]))
 			Values1=[8]
 			cursor.execute(SQLCommand1,Values1);
-		SQLCommand2=("INSERT INTO Users(sess_id,city,prop_id)VALUES(s_id,row_city[i],row_id[i]")
+		SQLCommand2=("INSERT INTO Users(sess_id,city,prop_id)VALUES (%s,%s,%d)",(s_id,row_city[i],row_id[i]))
 		Values2=[3]
 		cursor.execute(SQLCommand2,Values2);
-		SQLCommand3 = ("SELECT u.sess_id,p.title FROM users u join property p on u.prop_id=p.prop_id WHERE p.city='Islamabad' ORDER BY u.sess_id") 
+		SQLCommand3 = ("SELECT u.sess_id,p.title FROM users u join property p on u.prop_id=p.prop_id WHERE p.city=%s ORDER BY u.sess_id",row_city[i]) 
 		Values3=[2]
 		cursor.execute(SQLCommand3,Values3);
 		userdata=cursor.fetchone()
@@ -377,7 +377,7 @@ def makeWebhookResult(data):
 	(algostr,r_slug,im_url)=recommendationalgo()
 	algos = "Recommeded for you: " + algostr
 	#recommended property
-	SQLCommand4=("SELECT * FROM Property WHERE title=algos")
+	SQLCommand4=("SELECT * FROM Property WHERE title=%s",algos)
 	Values4=[8]
 	cursor.execute(SQLCommand4,Values4);
 	recom_prop=cursor.fetchone()
