@@ -371,7 +371,7 @@ def makeWebhookResult(data):
 		userdata=cursor.fetchone()
 		while userdata:
 			#if user_info.keys()[len(user_info)-1]==userdata[0]:
-			if userdata[0] in user_info:
+			if userdata[0] in users_info:
 				users_info[userdata[0]].update({userdata[1]})
 			else:
 				users_info.update({userdata[0]: {userdata[1]}})
