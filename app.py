@@ -356,7 +356,7 @@ def makeWebhookResult(data):
 			Values1=[8]
 			cursor.execute(SQLCommand1,Values1);
 		conn.commit()
-		SQLCommand5=("SELECT * FROM Users WHERE Users.prop_id=%d and Users.sess_id='%s'  "(row_id[i],s_id))
+		SQLCommand5=("SELECT * FROM Users WHERE Users.prop_id=%d and Users.sess_id='%s'"%(row_id[i],s_id))
 		Values5=[3]
 		cursor.execute(SQLCommand5,Values5)
 		user_check=cursor.fetchone()
