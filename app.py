@@ -346,7 +346,8 @@ def makeWebhookResult(data):
 		row_image[i]=data[i]['image']
 		row_city[i]=data[i]['city_name']
 		#sql code
-		
+		if "Unable" in row_title[0]:
+			break
 		SQLCommand=("SELECT * FROM Property WHERE Property.prop_id=%d"%  (row_id[i]))
 		Values=[8]
 		cursor.execute(SQLCommand,Values)
