@@ -20,6 +20,8 @@ conn = psycopg2.connect(
     host=db_url.hostname,
     port=db_url.port
 )
+user_info={};
+user_info.update({'a':{0,1}})
 cursor=conn.cursor()
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -362,7 +364,6 @@ def makeWebhookResult(data):
 		Values3=[2]
 		cursor.execute(SQLCommand3,Values3);
 		userdata=cursor.fetchone()
-		user_info={};
 		while userdata:
 			if user_info.keys()[len(user_info)-1]==userdata[0]:
 				users_info[userdata[0]].update({userdata[1]})
