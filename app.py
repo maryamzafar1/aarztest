@@ -9,9 +9,8 @@ import os
 from flask import Flask
 from flask import request
 from flask import make_response
-pip install psycopg2
-pip freeze > requirements.txt
-import psycopg2
+import psycopg
+from psycopg import psycopg2
 #import urlparse
 x=os.environ['DATABASE_URL'] = "postgres://solrwgieezdudx:9a9654815c43e749fb35630a403d60b6a30c33691ec4b5f96ad320e4e65dd002@ec2-107-20-250-195.compute-1.amazonaws.com:5432/d9m3jramvhf5pq"
 urlparse.uses_netloc.append("postgres")
