@@ -386,7 +386,7 @@ def makeWebhookResult(data):
 	(algostr,r_slug,im_url)=recommendationalgo()
 	algos = "Recommeded for you: " + algostr
 	#recommended property
-	SQLCommand4=("SELECT * FROM Property WHERE title=%s"%(algos))
+	SQLCommand4=("SELECT * FROM Property WHERE title='%s'"%(algostr))
 	Values4=[8]
 	cursor.execute(SQLCommand4,Values4);
 	recom_prop=cursor.fetchone()
