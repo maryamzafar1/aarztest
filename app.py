@@ -12,7 +12,7 @@ from flask import make_response
 import psycopg2
 #import urlparse
 x=os.environ['DATABASE_URL'] = "postgres://solrwgieezdudx:9a9654815c43e749fb35630a403d60b6a30c33691ec4b5f96ad320e4e65dd002@ec2-107-20-250-195.compute-1.amazonaws.com:5432/d9m3jramvhf5pq"
-urlparse.uses_netloc.append("postgres")
+urlparse.uses_netloc.append("//postgres")
 db_url = urlparse.urlparse(os.environ['DATABASE_URL']) 
 conn = psycopg2.connect(
     database=db_url.path[1:],
