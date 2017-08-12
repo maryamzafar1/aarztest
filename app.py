@@ -356,9 +356,14 @@ def makeWebhookResult(data):
 			Values1=[8]
 			cursor.execute(SQLCommand1,Values1);
 		conn.commit()
-		SQLCommand2=("INSERT INTO Users(sess_id,city,prop_id)VALUES ('%s','%s',%d)"%(s_id,row_city[i],row_id[i]))
-		Values2=[3]
-		cursor.execute(SQLCommand2,Values2);
+		SQLCommand5=("SELECT * FROM Users WHERE Users.prop_id=%d and Users.sess_id=d%  "(row_id[i],s_id))
+		Values5=[3]
+		cursor.execute(SQLCommand5,Values5)
+		user_check=cursor.fetchone()
+		if prop_check==None:
+			SQLCommand2=("INSERT INTO Users(sess_id,city,prop_id)VALUES ('%s','%s',%d)"%(s_id,row_city[i],row_id[i]))
+			Values2=[3]
+			cursor.execute(SQLCommand2,Values2);
 		conn.commit()
 		SQLCommand3 = ("SELECT u.sess_id,p.title FROM users u join property p on u.prop_id=p.prop_id WHERE p.city='%s' ORDER BY u.sess_id"%(row_city[i])) 
 		Values3=[2]
