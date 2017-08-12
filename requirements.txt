@@ -1,5 +1,4 @@
 Flask==0.10.1
-adium-theme-ubuntu==0.3.4
 apiai==1.2.3
 crcmod==1.7
 dominate==2.3.1
