@@ -345,7 +345,7 @@ def makeWebhookResult(data):
 		row_city[i]=data[i]['city_name']
 		#sql code
 		
-		SQLCommand="SELECT * FROM Property WHERE Property.prop_id=%d", row_id[i]
+		SQLCommand=("SELECT * FROM Property WHERE Property.prop_id=%d"%  (row_id[i]))
 		Values=[8]
 		cursor.execute(SQLCommand)
 		prop_check=cursor.fetchone() 
