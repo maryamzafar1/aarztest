@@ -366,7 +366,7 @@ def makeWebhookResult(data):
 			if user_info.keys()[-1]==userdata[0]:
 				users_info[userdata[0]].update({userdata[1]})
 			else:
-				users_info.update({userdata[0]: {userdata[1]})
+				users_info.update({userdata[0]: {userdata[1]}})
 			userdata=cursor.fetchone()
 		print(user_info)
 		speech_data_parts="Here is record " + str(i+1) +":"+ row_title[i]+" in city "+row_city[i] + " price is "+ str(row_price[i]) + "."
