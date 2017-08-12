@@ -355,7 +355,7 @@ def makeWebhookResult(data):
 			SQLCommand1= ("INSERT INTO property(prop_id,city,title,address,number,slug,price,image) VALUES (%d,'%s','%s','%s','%s','%s',%d,'%s')" %(row_id[i],row_city[i],row_title[i],row_location[i],row_number[i],row_slug[i],row_price[i],row_image[i]))
 			Values1=[8]
 			cursor.execute(SQLCommand1,Values1);
-			conn.commit()
+		conn.commit()
 		SQLCommand2=("INSERT INTO Users(sess_id,city,prop_id)VALUES ('%s','%s',%d)"%(s_id,row_city[i],row_id[i]))
 		Values2=[3]
 		cursor.execute(SQLCommand2,Values2);
