@@ -362,7 +362,7 @@ def makeWebhookResult(data):
 		userdata=cursor.fetchone()
 		user_info={};
 		while userdata:
-			if user_info.keys()[-1]==userdata[0]:
+			if user_info.keys()[len(d)-1]==userdata[0]:
 				users_info[userdata[0]].update({userdata[1]})
 			else:
 				users_info.update({userdata[0]: {userdata[1]}})
