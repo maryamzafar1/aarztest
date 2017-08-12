@@ -20,8 +20,8 @@ conn = psycopg2.connect(
     host=db_url.hostname,
     port=db_url.port
 )
-user_info={};
-user_info.update({'a':{0,1}})
+users_info={};
+#user_info.update({'a':{0,1}})
 cursor=conn.cursor()
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -376,7 +376,7 @@ def makeWebhookResult(data):
 			else:
 				users_info.update({userdata[0]: {userdata[1]}})
 			userdata=cursor.fetchone()
-		print(user_info)
+		print(users_info)
 		speech_data_parts="Here is record " + str(i+1) +":"+ row_title[i]+" in city "+row_city[i] + " price is "+ str(row_price[i]) + "."
 		speech_data = speech_data + speech_data_parts
 		text_data_parts ="Here is record " + str(i+1) +":"+ row_title[i]+" in city "+row_city[i] + " price is "+ str(row_price[i])+ ". For Info about this contact at number "+str(row_number[i]) + "."
