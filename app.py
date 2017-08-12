@@ -360,7 +360,7 @@ def makeWebhookResult(data):
 		Values3=[2]
 		cursor.execute(SQLCommand3,Values3);
 		userdata=cursor.fetchone()
-		userinfo={};
+		user_info={};
 		while userdata:
 			if user_info.keys()[-1]==userdata[0]:
 				users_info[userdata[0]].update({userdata[1]})
