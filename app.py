@@ -370,7 +370,8 @@ def makeWebhookResult(data):
 		cursor.execute(SQLCommand3,Values3);
 		userdata=cursor.fetchone()
 		while userdata:
-			if user_info.keys()[len(user_info)-1]==userdata[0]:
+			#if user_info.keys()[len(user_info)-1]==userdata[0]:
+			if userdata[0] in user_info:
 				users_info[userdata[0]].update({userdata[1]})
 			else:
 				users_info.update({userdata[0]: {userdata[1]}})
