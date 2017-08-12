@@ -347,7 +347,7 @@ def makeWebhookResult(data):
 		
 		SQLCommand=("SELECT * FROM Property WHERE Property.prop_id=%d", row_id[i])
 		Values=[8]
-		cursor.execute(SQLCommand,Values)
+		cursor.execute(SQLCommand)
 		prop_check=cursor.fetchone() 
 		if prop_check==None:
 			SQLCommand1= ("INSERT INTO property(prop_id,city,title,address,number,slug,price,image) VALUES (%d,%s,%s,%s,%s,%s,%d,%s)" ,(row_id[i],row_city[i],row_title[i],row_location[i],row_number[i],row_slug[i],row_price[i],row_image[i]))
