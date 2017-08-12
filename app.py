@@ -346,7 +346,7 @@ def makeWebhookResult(data):
 		row_image[i]=data[i]['image']
 		row_city[i]=data[i]['city_name']
 		#sql code
-	        cursor=conn.cursor();
+	        cursor=conn.cursor()
 		SQLCommand=("SELECT * FROM Property WHERE prop_id=row_id[i];")
 		Values=[8]
 		cursor.execute(SQLCommand,Values)
