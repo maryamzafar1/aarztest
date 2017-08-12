@@ -334,6 +334,7 @@ def makeWebhookResult(data):
 	row_number=['test','test1','test2','test3','test4','test5','test6','test7','test8','test9','test10']
 	row_image=['test','test1','test2','test3','test4','test5','test6','test7','test8','test9','test10']
 	row_city=['test','test1','test2','test3','test4','test5','test6','test7','test8','test9','test10']
+        cursor=conn.cursor()
 	while (i <length):
 		row_id[i]=data[i]['property_id']
 		row_title[i]=data[i]['title']
@@ -346,7 +347,6 @@ def makeWebhookResult(data):
 		row_image[i]=data[i]['image']
 		row_city[i]=data[i]['city_name']
 		#sql code
-	        cursor=conn.cursor()
 		SQLCommand=("SELECT * FROM Property WHERE prop_id=row_id[i];")
 		Values=[8]
 		cursor.execute(SQLCommand,Values)
