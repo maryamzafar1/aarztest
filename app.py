@@ -361,7 +361,6 @@ def makeWebhookResult(data):
 		SQLCommand3 = ("SELECT u.sess_id,p.title FROM users u join property p on u.prop_id=p.prop_id WHERE p.city='%s' ORDER BY u.sess_id"%(row_city[i])) 
 		Values3=[2]
 		cursor.execute(SQLCommand3,Values3);
-		conn.commit()
 		userdata=cursor.fetchone()
 		user_info={};
 		while userdata:
@@ -380,10 +379,9 @@ def makeWebhookResult(data):
 	(algostr,r_slug,im_url)=recommendationalgo()
 	algos = "Recommeded for you: " + algostr
 	#recommended property
-	SQLCommand4=("SELECT * FROM Property WHERE title=%s",algos)
+	SQLCommand4=("SELECT * FROM Property WHERE title=%s"%(algos))
 	Values4=[8]
 	cursor.execute(SQLCommand4,Values4);
-	conn.commit()
 	recom_prop=cursor.fetchone()
 	text_data = text_data + algos + r_slug + im_url
 	variable1=str(row_number[0])
